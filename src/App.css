@@ -9,3 +9,82 @@
   width: 400px;
   margin: auto;
 }
+
+body {
+  background-color: #111;
+}
+
+h1,
+h2,
+h3 {
+  color: #eee;
+}
+
+.card {
+  background-color: #414141 !important;
+  box-shadow: 0 1px 3px 0 #757070, 0 0 0 1px #757070 !important;
+}
+
+.description,
+.meta,
+.header,
+.content {
+  color: #fff !important;
+}
+
+.ui.secondary.pointing.menu .item {
+  color: #eee;
+}
+
+.ui.secondary.pointing.menu .item:hover {
+  color: #00b5afcc !important;
+}
+
+.ui .form label {
+  color: #fff !important;
+}
+
+.ui.loading.form:before {
+  background: rgba(255, 255, 255, 0);
+}
+
+.ui.loading.form:after {
+  border-color: rgb(0, 181, 175) rgba(0, 181, 175, 0.5) rgba(0, 181, 175, 0.5)
+    rgba(0, 181, 175, 0.5);
+}
+
+.ui.form input:not([type]),
+.ui.form input[type="date"],
+.ui.form input[type="datetime-local"],
+.ui.form input[type="email"],
+.ui.form input[type="file"],
+.ui.form input[type="number"],
+.ui.form input[type="password"],
+.ui.form input[type="search"],
+.ui.form input[type="tel"],
+.ui.form input[type="text"],
+.ui.form input[type="time"],
+.ui.form input[type="url"] {
+  color: #fff;
+  background-color: #414141;
+}
+
+.ui.form input:not([type]):focus,
+.ui.form input[type="date"]:focus,
+.ui.form input[type="datetime-local"]:focus,
+.ui.form input[type="email"]:focus,
+.ui.form input[type="file"]:focus,
+.ui.form input[type="number"]:focus,
+.ui.form input[type="password"]:focus,
+.ui.form input[type="search"]:focus,
+.ui.form input[type="tel"]:focus,
+.ui.form input[type="text"]:focus,
+.ui.form input[type="time"]:focus,
+.ui.form input[type="url"]:focus {
+  background-color: #535353;
+  color: #fff;
+}
+
+.ui.secondary.pointing.menu {
+  border-bottom: 2px solid rgba(114, 117, 119, 0.15);
+}
