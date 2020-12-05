@@ -60,7 +60,9 @@ const Home = () => {
                     The BE is problably sleeping beause of hosting on heroku 😴
                   </h3>
                   <h3>
-                    Visit this <a href="/">link </a> to activate it 🥳
+                    Visit this{" "}
+                    <a href="https://rowin-blogify.herokuapp.com/">link </a> to
+                    activate it 🥳
                   </h3>
                 </>
               )}
