@@ -3,7 +3,6 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import {
   Button,
   Card,
-  Divider,
   Form,
   Grid,
   Icon,
@@ -51,19 +50,23 @@ const SinglePost = (props) => {
       likeCount,
       commentCount,
     } = data.getPost;
-    console.log("id", id);
 
     postMarkup = (
       <Grid>
         <Grid.Row>
-          <Grid.Column width={2}>
+          <Grid.Column
+            mobile={16}
+            tablet={2}
+            computer={2}
+            className="image_container"
+          >
             <Image
               floated="right"
               size="small"
               src={`https://picsum.photos/800/800?random=${likeCount}`}
             />
           </Grid.Column>
-          <Grid.Column width={10}>
+          <Grid.Column mobile={16} tablet={14} computer={14}>
             <Card fluid>
               <Card.Content>
                 <Card.Header>{title}</Card.Header>
@@ -80,11 +83,7 @@ const SinglePost = (props) => {
                 <Card.Content extra>
                   <LikeButton user={user} post={{ id, likeCount, likes }} />
                   <MyPopup content="Comments on Post">
-                    <Button
-                      as="div"
-                      labelPosition="right"
-                      onClick={() => console.log("comment on post")}
-                    >
+                    <Button as="div" labelPosition="right">
                       <Button basic color="blue">
                         <Icon name="comments" />
                       </Button>

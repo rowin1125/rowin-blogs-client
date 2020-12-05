@@ -32,6 +32,10 @@ h3 {
   color: #fff !important;
 }
 
+.ui.secondary.pointing.menu {
+  border-bottom: 2px solid rgba(163, 166, 168, 0.15);
+}
+
 .ui.secondary.pointing.menu .item {
   color: #eee;
 }
@@ -67,6 +71,7 @@ h3 {
 .ui.form input[type="url"] {
   color: #fff;
   background-color: #414141;
+  border: 2px solid rgba(163, 166, 168, 0.15);
 }
 
 .ui.form input:not([type]):focus,
@@ -85,6 +90,24 @@ h3 {
   color: #fff;
 }
 
-.ui.secondary.pointing.menu {
-  border-bottom: 2px solid rgba(114, 117, 119, 0.15);
+.ui.modal,
+.ui.modal > .header,
+.ui.modal > .content,
+.ui.modal > .actions {
+  background-color: #414141 !important;
+  border-top: 1px solid rgba(163, 166, 168, 0.15);
+}
+
+@media only screen and (max-width: 767px) {
+  .image_container {
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 16px !important;
+  }
+
+  .image_container img {
+    width: 95vw !important;
+    height: 25vh !important;
+    object-fit: cover;
+  }
 }

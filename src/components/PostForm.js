@@ -4,7 +4,7 @@ import { Button, Form } from "semantic-ui-react";
 import { useForm } from "../utils/hooks";
 import { FETCH_POSTS_QUERY } from "../utils/graphql";
 
-function PostForm() {
+function PostForm({ toggle }) {
   const [errors, setErrors] = useState({});
   const { values, onChange, onSubmit } = useForm(createPostCallback, {
     title: "",
@@ -25,6 +25,7 @@ function PostForm() {
       });
       values.title = "";
       values.body = "";
+      toggle(false);
     },
     onError(err) {
       setErrors(err.graphQLErrors[0].extensions.exception.errors);
