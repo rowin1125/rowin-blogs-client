@@ -4,6 +4,7 @@ import { Button, Form } from "semantic-ui-react";
 
 import { useForm } from "../utils/hooks";
 import { AuthContext } from "../context/auth";
+import { toast } from "react-semantic-toasts";
 
 const Login = (props) => {
   const context = useContext(AuthContext);
@@ -17,9 +18,21 @@ const Login = (props) => {
     update(proxy, { data: { login: userData } }) {
       context.login(userData);
       props.history.push("/");
+      toast({
+        title: "Successfully logged in!",
+        type: "success",
+        icon: "unlock",
+        description: <p>You are now logged in, let's goo! 🚀</p>,
+      });
     },
     onError(err) {
       setErrors(err.graphQLErrors[0].extensions.exception.errors);
+      toast({
+        title: "Oeeps something went wrong!",
+        type: "error",
+        icon: "lock",
+        description: <p>Please try again! ⛔️</p>,
+      });
     },
     variables: values,
   });

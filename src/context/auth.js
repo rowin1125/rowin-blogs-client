@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import jwtDecode from "jwt-decode";
+import { toast } from "react-semantic-toasts";
 
 const initialState = {
   user: null,
@@ -51,6 +52,11 @@ function AuthProvider(props) {
 
   const logout = () => {
     localStorage.removeItem("jwtToken");
+    toast({
+      title: "Sucessfull logged out!",
+      type: "success",
+      icon: "check",
+    });
     dispatch({
       type: "LOGOUT",
     });

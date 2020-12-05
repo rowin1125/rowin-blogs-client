@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Button, Icon, Label } from "semantic-ui-react";
 import { useMutation, gql } from "@apollo/client";
 import { Link } from "react-router-dom";
+import { toast } from "react-semantic-toasts";
+
 import MyPopup from "./MyPopup";
 
 const LikeButton = ({ user, post: { likeCount, id, likes } }) => {
@@ -14,6 +16,13 @@ const LikeButton = ({ user, post: { likeCount, id, likes } }) => {
   }, [user, likes]);
 
   const [likePost] = useMutation(LIKE_POST_MUTATION, {
+    update() {
+      toast({
+        title: liked ? "Unliked" : "Liked!",
+        type: "success",
+        icon: liked ? "undo" : "like",
+      });
+    },
     variables: { postId: id },
   });
 

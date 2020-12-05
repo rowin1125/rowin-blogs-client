@@ -113,3 +113,13 @@ h3 {
     object-fit: cover;
   }
 }
+
+.custom-toaster p,
+.custom-toaster h2,
+.custom-toaster h3 {
+  color: black !important;
+}
+
+.message .content .header {
+  color: black !important;
+}

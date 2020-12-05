@@ -1,5 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import React, { useContext, useState } from "react";
+import { toast } from "react-semantic-toasts";
 import { Button, Form } from "semantic-ui-react";
 
 import { AuthContext } from "../context/auth";
@@ -19,9 +20,20 @@ const Register = (props) => {
     update(_, { data: { register: userData } }) {
       props.history.push("/");
       context.login(userData);
+      toast({
+        title: "Sucessfull sign up!",
+        type: "success",
+        icon: "signup",
+      });
     },
     onError(err) {
       setErrors(err.graphQLErrors[0].extensions.exception.errors);
+      toast({
+        title: "Oeeps something went wrong!",
+        type: "error",
+        icon: "lock",
+        description: <p>Please try again! ⛔️</p>,
+      });
     },
     variables: values,
   });

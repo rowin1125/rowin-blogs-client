@@ -15,6 +15,7 @@ import LikeButton from "../components/LikeButton";
 import MyPopup from "../components/MyPopup";
 import { AuthContext } from "../context/auth";
 import DeleteButton from "../components/DeleteButton";
+import { toast } from "react-semantic-toasts";
 
 const SinglePost = (props) => {
   const postId = props.match.params.postId;
@@ -29,6 +30,11 @@ const SinglePost = (props) => {
     update() {
       setComment("");
       commentInputRef.current.blur();
+      toast({
+        title: "Succesfully created!",
+        type: "success",
+        icon: "signup",
+      });
     },
     variables: { postId, body: comment },
   });

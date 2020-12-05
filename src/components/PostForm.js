@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button, Form } from "semantic-ui-react";
 import { useForm } from "../utils/hooks";
 import { FETCH_POSTS_QUERY } from "../utils/graphql";
+import { toast } from "react-semantic-toasts";
 
 function PostForm({ toggle }) {
   const [errors, setErrors] = useState({});
@@ -28,6 +29,11 @@ function PostForm({ toggle }) {
       values.description = "";
       values.body = "";
       toggle(false);
+      toast({
+        title: "Succesfully created!",
+        type: "success",
+        icon: "signup",
+      });
     },
     onError(err) {
       setErrors(err.graphQLErrors[0].extensions.exception.errors);

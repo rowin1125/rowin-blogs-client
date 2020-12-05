@@ -4,6 +4,7 @@ import { Button, Icon, Confirm } from "semantic-ui-react";
 
 import { FETCH_POSTS_QUERY } from "../utils/graphql";
 import MyPopup from "./MyPopup";
+import { toast } from "react-semantic-toasts";
 
 const DeleteButton = ({ postId, commentId, routeTo }) => {
   const [open, toggle] = useState(false);
@@ -26,6 +27,11 @@ const DeleteButton = ({ postId, commentId, routeTo }) => {
         });
         routeTo && routeTo();
       }
+      toast({
+        title: "Succesfully deleted!",
+        type: "success",
+        icon: "trash alternate",
+      });
     },
     variables: { postId, commentId },
   });
