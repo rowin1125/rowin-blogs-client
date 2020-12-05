@@ -28,7 +28,9 @@ const Home = () => {
         )}
         <Modal dimmer="blurring" open={open} onClose={() => toggle(false)}>
           <Modal.Header>
-            Create your new post and contribute to Blogify
+            <p className="page-title">
+              Create your new post and contribute to Blogify
+            </p>
           </Modal.Header>
           <Modal.Content>
             <PostForm toggle={toggle} />
@@ -39,7 +41,7 @@ const Home = () => {
         ) : (
           <Transition.Group>
             <Grid style={{ marginTop: "32px" }}>
-              {data.getPosts &&
+              {data ? (
                 data.getPosts.map((post, i) => (
                   <Grid.Column
                     mobile={16}
@@ -50,7 +52,18 @@ const Home = () => {
                   >
                     <PostCard post={post} index={i} />
                   </Grid.Column>
-                ))}
+                ))
+              ) : (
+                <>
+                  <h2>📡 No data found!</h2>
+                  <h3>
+                    The BE is problably sleeping beause of hosting on heroku 😴
+                  </h3>
+                  <h3>
+                    Visit this <a href="/">link </a> to activate it 🥳
+                  </h3>
+                </>
+              )}
             </Grid>
           </Transition.Group>
         )}

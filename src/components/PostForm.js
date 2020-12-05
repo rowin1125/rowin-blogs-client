@@ -8,6 +8,7 @@ function PostForm({ toggle }) {
   const [errors, setErrors] = useState({});
   const { values, onChange, onSubmit } = useForm(createPostCallback, {
     title: "",
+    description: "",
     body: "",
   });
 
@@ -24,6 +25,7 @@ function PostForm({ toggle }) {
         },
       });
       values.title = "";
+      values.description = "";
       values.body = "";
       toggle(false);
     },
@@ -58,8 +60,16 @@ function PostForm({ toggle }) {
             error={errors.title ? true : false}
           />
           <Form.Input
+            placeholder="Short description"
+            name="description"
+            onChange={onChange}
+            value={values.description}
+            error={errors.description ? true : false}
+          />
+          <Form.TextArea
             placeholder="Content of the post"
             name="body"
+            rows="10"
             onChange={onChange}
             value={values.body}
             error={errors.body ? true : false}
@@ -74,10 +84,11 @@ function PostForm({ toggle }) {
 }
 
 const CREATE_POST_MUTATION = gql`
-  mutation createPost($title: String!, $body: String!) {
-    createPost(title: $title, body: $body) {
+  mutation createPost($title: String!, $description: String!, $body: String!) {
+    createPost(title: $title, description: $description, body: $body) {
       id
       title
+      description
       body
       createdAt
       username

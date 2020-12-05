@@ -68,7 +68,8 @@ h3 {
 .ui.form input[type="tel"],
 .ui.form input[type="text"],
 .ui.form input[type="time"],
-.ui.form input[type="url"] {
+.ui.form input[type="url"],
+.ui.form textarea {
   color: #fff;
   background-color: #414141;
   border: 2px solid rgba(163, 166, 168, 0.15);
@@ -85,7 +86,8 @@ h3 {
 .ui.form input[type="tel"]:focus,
 .ui.form input[type="text"]:focus,
 .ui.form input[type="time"]:focus,
-.ui.form input[type="url"]:focus {
+.ui.form input[type="url"]:focus,
+.ui.form textarea:focus {
   background-color: #535353;
   color: #fff;
 }

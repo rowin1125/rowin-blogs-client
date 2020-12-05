@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Card, Icon, Label, Image, Button, Divider } from "semantic-ui-react";
+import { Card, Icon, Label, Image, Button } from "semantic-ui-react";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
@@ -12,7 +12,7 @@ const PostCard = ({
   index,
   post: {
     title,
-    body,
+    description,
     createdAt,
     id,
     username,
@@ -32,11 +32,14 @@ const PostCard = ({
           src={`https://picsum.photos/800/800?random=${index}`}
         />
         <Card.Header>{title}</Card.Header>
-        <Card.Meta style={{ marginTop: "10px" }}>
+        <Card.Meta>
           Created {moment(createdAt).fromNow()} by{" "}
           <Label style={{ marginLeft: "4px" }}>{username}</Label>
         </Card.Meta>
-        <Card.Description>{body}</Card.Description>
+        <Card.Description>
+          <Icon name="quote left" size="small" /> {description}{" "}
+          <Icon name="quote right" size="small" />
+        </Card.Description>
       </Card.Content>
       <Card.Content extra>
         <LikeButton user={user} post={{ id, likes, likeCount }} />
